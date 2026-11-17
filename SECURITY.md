@@ -4,9 +4,10 @@
 
 This site is fully static: HTML, CSS, JavaScript and images served directly by
 GitHub Pages. There is no server-side code, no database, no form backend, no
-cookies and no third-party request. The only data stored on a visitor's device
-is the light/dark theme and the language preference, kept in the browser's
-localStorage on the visitor's own device.
+cookies and no third-party request (the typeface is embedded in the
+stylesheet, not loaded from a font service). The only data stored on a
+visitor's device is the light/dark theme and the language preference, kept in
+the browser's localStorage on the visitor's own device.
 
 Consequences of this architecture:
 
@@ -21,7 +22,7 @@ it that way:
 
 1. Enable two-factor authentication on the GitHub account
    (Settings → Password and authentication).
-2. Protect the `main` branch (Settings → Branches → Add branch protection rule)
+2. Protect the main branch (Settings → Branches → Add branch protection rule)
    and require a pull request before merging if more collaborators are added.
 3. Review the collaborator list periodically
    (Settings → Collaborators and teams).

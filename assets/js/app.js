@@ -35,6 +35,7 @@
     });
     const lt = $("#lang-toggle");
     if (lt) { lt.textContent = lang === "da" ? "EN" : "DA"; }
+    renderHero();
     renderAboutPortrait();
     renderProjects();
     if (route.name === "collection" && route.collection) {
@@ -103,6 +104,14 @@
   }
 
   /* ---------- rendering ---------- */
+
+  function renderHero() {
+    const host = $("#hero-art");
+    if (!host) { return; }
+    host.setAttribute("role", "img");
+    host.setAttribute("aria-label", t("hero_fig_alt"));
+    host.innerHTML = slotSVG(4);
+  }
 
   function renderAboutPortrait() {
     const host = $("#about-portrait");
