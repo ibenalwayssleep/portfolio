@@ -39,6 +39,7 @@
     renderMarquee();
     renderAboutPortrait();
     renderProjects();
+    renderWelcomeLinks();
     if (route.name === "collection" && route.collection) {
       renderCollection(route.collection);
     }
@@ -76,6 +77,7 @@
       if (moon) { moon.hidden = dark; }
     }
     renderStartArt();
+    renderWelcomeLinks();
     if (announce) { announceText(t("theme_now_" + th)); }
   }
 
@@ -104,7 +106,7 @@
     if (pinWrap && startInner && route.name === "home" && pinWrap.offsetHeight > 0) {
       const total = pinWrap.offsetHeight - window.innerHeight;
       const p = Math.min(1, Math.max(0, y / Math.max(1, total)));
-      startInner.style.opacity = String(Math.max(0, 1 - p * 1.25));
+      startInner.style.opacity = String(Math.max(0, 1 - p));
       if (!reducedMotion) {
         startInner.style.transform =
           "translateY(" + (-p * 70).toFixed(1) + "px) scale(" + (1 - p * 0.03).toFixed(3) + ")";
@@ -168,6 +170,49 @@
       return '<span class="mq-item">' + w + '</span><span class="mq-sep">&middot;</span>';
     }).join("");
     track.innerHTML = seq + seq;
+  }
+
+  /* ---------- welcome section: three photos as links ---------- */
+
+  const WELCOME_LINKS = [
+    { n: "01", href: "#/about", key: "link_about", dx: 130,
+      light: ["#DDE2D8", "#B0B9A8", "#8E9A83", "#48533F"],
+      dark: ["#383E34", "#444C40", "#515C48", "#B0B9A8"] },
+    { n: "02", href: "#/projects", key: "link_projects", dx: 100,
+      light: ["#F0E2CB", "#E6CFA8", "#DCB482", "#A87E4F"],
+      dark: ["#433A26", "#4E432B", "#5A4E31", "#DCB482"] },
+    { n: "03", href: "#/contact", key: "link_contact", dx: 160,
+      light: ["#E3CBB9", "#D3AE97", "#C09E85", "#A57F67"],
+      dark: ["#453529", "#4F3E30", "#5A4736", "#C09E85"] }
+  ];
+
+  function welcomeArtSVG(p, dx) {
+    return (
+      '<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+      '<rect width="400" height="500" fill="' + p[0] + '"/>' +
+      '<circle cx="' + dx + '" cy="150" r="86" fill="' + p[1] + '"/>' +
+      '<path d="M40 400 Q 200 300 360 420 L 360 500 L 40 500 Z" fill="' + p[2] + '"/>' +
+      '<circle cx="300" cy="130" r="52" fill="none" stroke="' + p[3] + '" stroke-width="1.2" opacity="0.55"/>' +
+      '<line x1="60" y1="90" x2="60" y2="230" stroke="' + p[3] + '" stroke-width="1" opacity="0.35"/>' +
+      '<rect x="270" y="330" width="70" height="70" fill="none" stroke="' + p[3] + '" stroke-width="1" opacity="0.3"/>' +
+      "</svg>"
+    );
+  }
+
+  function renderWelcomeLinks() {
+    const host = $("#welcome-grid");
+    if (!host) { return; }
+    const dark = root.getAttribute("data-dark") === "true";
+    host.innerHTML = WELCOME_LINKS.map(function (l) {
+      const p = dark ? l.dark : l.light;
+      return (
+        '<a class="plink" href="' + l.href + '">' +
+        '<span class="plink-art">' + welcomeArtSVG(p, l.dx) + "</span>" +
+        '<span class="plink-label"><span class="plink-num">' + l.n + "</span>" +
+        '<span class="plink-name">' + t(l.key) + "</span>" +
+        '<span class="plink-arrow">&rarr;</span></span></a>'
+      );
+    }).join("");
   }
 
   function renderAboutPortrait() {

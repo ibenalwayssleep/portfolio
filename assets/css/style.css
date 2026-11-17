@@ -334,7 +334,7 @@ html[data-dark="true"] :focus-visible { outline-color: var(--sage); }
 
 .view-home { padding-block: 0; min-height: 0; }
 
-.pin-wrap { height: 175vh; }
+.pin-wrap { height: 150vh; }
 
 .startpage { position: sticky; top: 0; height: 100vh; z-index: 0; }
 
@@ -396,14 +396,6 @@ html[data-dark="true"] .greet {
   transform-origin: center;
 }
 
-.start-sub {
-  font-style: italic;
-  font-size: 1.15rem;
-  color: var(--ink-soft);
-  max-width: 46ch;
-  margin: 34px 0 0;
-}
-
 .scroll-cue {
   position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%);
   font-family: var(--sans); font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
@@ -420,7 +412,50 @@ html[data-dark="true"] .greet {
 
 /* content that slides up over the pinned startpage */
 
-.after { position: relative; z-index: 2; background: var(--bg); }
+.after { position: relative; z-index: 2; background: var(--bg); margin-top: -50vh; }
+
+/* ---------- welcome section: greeting about the site, photos as links ---------- */
+
+.welcome { padding-block: 88px 76px; text-align: center; }
+
+.welcome-no {
+  font-family: var(--display); font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 500; line-height: 1; margin: 0 0 12px;
+}
+
+.welcome-meta {
+  font-family: var(--sans); font-size: 11px; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--ink-soft); margin: 0 0 40px;
+}
+
+.welcome-title {
+  font-size: clamp(1.7rem, 3.4vw, 2.4rem); font-weight: 500;
+  line-height: 1.2; margin: 0 0 48px;
+}
+
+.welcome-text {
+  font-style: italic; font-size: 1.18rem; line-height: 1.75;
+  color: var(--ink-soft); max-width: 56ch; margin: 0 auto 56px;
+}
+
+.welcome-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin: 0; }
+
+.plink { text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease; }
+.plink:hover, .plink:focus-visible { transform: translateY(-6px); }
+.plink:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+.plink-art { display: block; aspect-ratio: 4 / 5; border-radius: 3px; overflow: hidden; box-shadow: var(--shadow-1); }
+.plink-art svg { display: block; width: 100%; height: 100%; transition: transform 0.5s ease; }
+.plink:hover .plink-art svg { transform: scale(1.045); }
+
+.plink-label {
+  display: inline-flex; align-items: center; gap: 10px; margin-top: 16px;
+  font-family: var(--sans); font-size: 11.5px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--ink-soft);
+}
+.plink-num { color: var(--accent); }
+.plink-arrow { color: var(--accent); transition: transform 0.3s ease; }
+.plink:hover .plink-arrow { transform: translateX(4px); }
 
 .marquee { border-block: 1px solid var(--line); overflow: hidden; background: var(--bg-soft); }
 
@@ -714,6 +749,7 @@ html[data-dark="true"] .accent-3 { --accent: #b9b99d; }
 
 @media (max-width: 960px) {
   .about-grid { grid-template-columns: 260px 1fr; gap: 2.4rem; }
+  .welcome-grid { gap: 16px; }
 }
 
 /* short viewports: keep the pinned startpage inside the visible height */
@@ -727,7 +763,6 @@ html[data-dark="true"] .accent-3 { --accent: #b9b99d; }
   .start-flow { width: min(280px, 60vw, 36vh); }
   .greet-a { font-size: clamp(1.3rem, 4vw, 2rem); }
   .greet-b { font-size: clamp(1.6rem, 5vw, 2.8rem); }
-  .start-sub { display: none; }
 }
 
 @media (max-width: 759px) {
@@ -771,6 +806,7 @@ html[data-dark="true"] .accent-3 { --accent: #b9b99d; }
   .site-nav a { width: 100%; }
 
   .about-grid { grid-template-columns: 1fr; }
+  .welcome-grid { grid-template-columns: 1fr; }
   .portrait-frame { max-width: 300px; }
 
 }
