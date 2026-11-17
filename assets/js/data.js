@@ -1,0 +1,162 @@
+/* Portfolio data · Iben Guldbæk
+   Collections configuration and all interface text (DA/EN).
+   Replace lorem ipsum text here with the final copy. */
+window.PORTFOLIO = {
+  name: "Iben Guldbæk",
+  email: "iben.p.g@gmail.com",
+  linkedinUrl: "https://www.linkedin.com/in/ibenmbpguld",
+
+  collections: [
+    {
+      id: "samling-i",
+      numeral: "I",
+      count: 12,
+      accent: 0,
+      title: { da: "Samling I", en: "Collection I" },
+      subtitle: {
+        da: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+        en: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
+      }
+    },
+    {
+      id: "samling-ii",
+      numeral: "II",
+      count: 9,
+      accent: 1,
+      title: { da: "Samling II", en: "Collection II" },
+      subtitle: {
+        da: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+        en: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
+      }
+    },
+    {
+      id: "samling-iii",
+      numeral: "III",
+      count: 16,
+      accent: 2,
+      title: { da: "Samling III", en: "Collection III" },
+      subtitle: {
+        da: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+        en: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
+      }
+    },
+    {
+      id: "samling-iv",
+      numeral: "IV",
+      count: 20,
+      accent: 3,
+      title: { da: "Samling IV", en: "Collection IV" },
+      subtitle: {
+        da: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+        en: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
+      }
+    }
+  ],
+
+  i18n: {
+    da: {
+      doc_title: "Iben Guldbæk · Fotografi",
+      brand_sr: "Iben Guldbæk · Fotografi — forside",
+      skip: "Gå til indhold",
+      nav_label: "Hovednavigation",
+      nav_home: "Start",
+      nav_about: "Om mig",
+      nav_projects: "Projekter",
+      nav_contact: "Kontakt",
+      menu: "Menu",
+      kicker: "Fotografi · København",
+      hero_lead: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      cta_projects: "Se samlingerne",
+      cta_contact: "Kontakt mig",
+      strip_year: "2026",
+      strip_collections: "4 samlinger",
+      strip_area: "København",
+      about_kicker: "Om mig",
+      about_title: "Om Iben Guldbæk",
+      about_lead: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      about_p1: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      about_p2: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
+      about_p3: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.",
+      projects_kicker: "Projekter",
+      projects_title: "Samlinger",
+      projects_lead: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      contact_kicker: "Kontakt",
+      contact_title: "Kontakt",
+      contact_lead: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      contact_name: "Navn",
+      contact_email: "E-mail",
+      contact_area: "Område",
+      contact_area_value: "København og omegn",
+      footer_note: "Lorem ipsum dolor sit amet",
+      theme_aria: "Skift mellem lyst og mørkt tema",
+      lang_aria: "Skift sprog",
+      theme_now_auto: "Tema: følger systemet",
+      theme_now_light: "Tema: lyst",
+      theme_now_dark: "Tema: mørkt",
+      lang_now: "Sprog: dansk",
+      view_home: "Forside",
+      view_about: "Om mig",
+      view_projects: "Projekter",
+      view_contact: "Kontakt",
+      lightbox_close: "Luk",
+      linkedin_sr: "Iben Guldbæk på LinkedIn — åbner i et nyt vindue",
+      back: "Alle samlinger",
+      collection_aria: "Åbn samlingen {title}",
+      collection_count: "{n} billeder",
+      slot_alt: "Pladsholder — {title}, billede {i} af {n}",
+      portrait_alt: "Portræt af Iben Guldbæk (pladsholder)"
+    },
+    en: {
+      doc_title: "Iben Guldbæk · Photography",
+      brand_sr: "Iben Guldbæk · Photography — home",
+      skip: "Skip to content",
+      nav_label: "Main navigation",
+      nav_home: "Home",
+      nav_about: "About",
+      nav_projects: "Projects",
+      nav_contact: "Contact",
+      menu: "Menu",
+      kicker: "Photography · Copenhagen",
+      hero_lead: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      cta_projects: "View the collections",
+      cta_contact: "Contact me",
+      strip_year: "2026",
+      strip_collections: "4 collections",
+      strip_area: "Copenhagen",
+      about_kicker: "About",
+      about_title: "About Iben Guldbæk",
+      about_lead: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      about_p1: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      about_p2: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
+      about_p3: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.",
+      projects_kicker: "Projects",
+      projects_title: "Collections",
+      projects_lead: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      contact_kicker: "Contact",
+      contact_title: "Contact",
+      contact_lead: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      contact_name: "Name",
+      contact_email: "Email",
+      contact_area: "Area",
+      contact_area_value: "Copenhagen area",
+      footer_note: "Lorem ipsum dolor sit amet",
+      theme_aria: "Switch between light and dark theme",
+      lang_aria: "Switch language",
+      theme_now_auto: "Theme: follows the system",
+      theme_now_light: "Theme: light",
+      theme_now_dark: "Theme: dark",
+      lang_now: "Language: English",
+      view_home: "Home",
+      view_about: "About",
+      view_projects: "Projects",
+      view_contact: "Contact",
+      lightbox_close: "Close",
+      linkedin_sr: "Iben Guldbæk on LinkedIn — opens in a new window",
+      back: "All collections",
+      collection_aria: "Open collection {title}",
+      collection_count: "{n} images",
+      slot_alt: "Placeholder — {title}, image {i} of {n}",
+      portrait_alt: "Portrait of Iben Guldbæk (placeholder)"
+    }
+  }
+};
