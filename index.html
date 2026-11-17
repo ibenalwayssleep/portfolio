@@ -57,31 +57,34 @@
         </nav>
       </div>
     </div>
+    <div class="header-progress" id="header-progress" aria-hidden="true"></div>
   </header>
 
   <main id="main">
     <section id="view-home" class="view view-home" aria-labelledby="hero-title">
-      <div class="wrap hero">
-        <div class="hero-copy">
-          <p class="kicker" data-i18n="kicker">Fotografi · København</p>
-          <h1 id="hero-title" class="hero-title">Iben Guldbæk</h1>
-          <p class="hero-lead" data-i18n="hero_lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <p class="hero-cta">
-            <a class="btn btn-primary" href="#/projects" data-route="/projects" data-i18n="cta_projects">Se samlingerne</a>
-            <a class="btn btn-ghost" href="#/contact" data-route="/contact" data-i18n="cta_contact">Kontakt mig</a>
-          </p>
-          <ul class="hero-strip">
-            <li data-i18n="strip_year">2026</li>
-            <li data-i18n="strip_collections">4 samlinger</li>
-            <li data-i18n="strip_area">København</li>
-          </ul>
+      <div class="pin-wrap" id="pin-wrap">
+        <div class="startpage" aria-label="Startside">
+          <div class="start-inner" id="start-inner">
+            <p class="start-kicker" data-i18n="kicker">Fotografi · København</p>
+            <div class="start-flow">
+              <p class="greet greet-a" data-i18n="greet_a">Hej,</p>
+              <div class="start-art" id="start-art"></div>
+              <h1 class="greet greet-b" id="hero-title" data-i18n="greet_b">jeg er Iben</h1>
+            </div>
+            <p class="start-sub" data-i18n="start_sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            <div class="scroll-cue" aria-hidden="true"><span data-i18n="scroll">Scroll</span><span class="line"></span></div>
+          </div>
         </div>
-        <figure class="hero-figure">
-          <div id="hero-art" class="hero-frame"></div>
-          <blockquote class="hero-quote">
-            <p data-i18n="hero_quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </blockquote>
-        </figure>
+      </div>
+      <div class="after">
+        <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee-track"></div></div>
+        <div class="quote-band">
+          <div class="wrap">
+            <span class="qmark" aria-hidden="true">&ldquo;</span>
+            <blockquote data-i18n="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</blockquote>
+            <cite data-i18n="quote_cite">Iben Guldbæk</cite>
+          </div>
+        </div>
       </div>
     </section>
 

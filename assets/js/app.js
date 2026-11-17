@@ -35,7 +35,8 @@
     });
     const lt = $("#lang-toggle");
     if (lt) { lt.textContent = lang === "da" ? "EN" : "DA"; }
-    renderHero();
+    renderStartArt();
+    renderMarquee();
     renderAboutPortrait();
     renderProjects();
     if (route.name === "collection" && route.collection) {
@@ -74,6 +75,7 @@
       if (sun) { sun.hidden = !dark; }
       if (moon) { moon.hidden = dark; }
     }
+    renderStartArt();
     if (announce) { announceText(t("theme_now_" + th)); }
   }
 
@@ -86,10 +88,28 @@
   /* ---------- sticky header: condense on scroll ---------- */
 
   const siteHeader = $(".site-header");
+  const pinWrap = $("#pin-wrap");
+  const startInner = $("#start-inner");
+  const progressBar = $("#header-progress");
 
   function onScroll() {
-    if (!siteHeader) { return; }
-    siteHeader.classList.toggle("scrolled", window.scrollY > 24);
+    const y = window.scrollY || 0;
+    if (siteHeader) {
+      siteHeader.classList.toggle("scrolled", y > 24);
+    }
+    if (progressBar) {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      progressBar.style.width = (max > 0 ? (y / max) * 100 : 0) + "%";
+    }
+    if (pinWrap && startInner && route.name === "home" && pinWrap.offsetHeight > 0) {
+      const total = pinWrap.offsetHeight - window.innerHeight;
+      const p = Math.min(1, Math.max(0, y / Math.max(1, total)));
+      startInner.style.opacity = String(Math.max(0, 1 - p * 1.25));
+      if (!reducedMotion) {
+        startInner.style.transform =
+          "translateY(" + (-p * 70).toFixed(1) + "px) scale(" + (1 - p * 0.03).toFixed(3) + ")";
+      }
+    }
   }
 
   /* ---------- placeholder art ---------- */
@@ -114,12 +134,40 @@
 
   /* ---------- rendering ---------- */
 
-  function renderHero() {
-    const host = $("#hero-art");
+  function startArtSVG() {
+    const dark = root.getAttribute("data-dark") === "true";
+    const tint = dark ? "#3C352C" : "#EADCD0";
+    const tone1 = dark ? "#443B2E" : "#D5CABA";
+    const tone2 = dark ? "#4C4232" : "#C09E85";
+    const ink = dark ? "#B0B9A8" : "#6F5847";
+    return (
+      '<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+      '<rect width="400" height="500" fill="' + tint + '"/>' +
+      '<circle cx="100" cy="150" r="86" fill="' + tone1 + '"/>' +
+      '<path d="M40 400 Q 200 300 360 420 L 360 500 L 40 500 Z" fill="' + tone2 + '"/>' +
+      '<circle cx="300" cy="130" r="52" fill="none" stroke="' + ink + '" stroke-width="1.2" opacity=".55"/>' +
+      '<line x1="60" y1="90" x2="60" y2="230" stroke="' + ink + '" stroke-width="1" opacity=".35"/>' +
+      '<rect x="270" y="330" width="70" height="70" fill="none" stroke="' + ink + '" stroke-width="1" opacity=".3"/>' +
+      "</svg>"
+    );
+  }
+
+  function renderStartArt() {
+    const host = $("#start-art");
     if (!host) { return; }
     host.setAttribute("role", "img");
-    host.setAttribute("aria-label", t("hero_fig_alt"));
-    host.innerHTML = slotSVG(4);
+    host.setAttribute("aria-label", t("start_art_alt"));
+    host.innerHTML = startArtSVG();
+  }
+
+  function renderMarquee() {
+    const track = $("#marquee-track");
+    if (!track) { return; }
+    const words = (P.i18n[lang] && P.i18n[lang].marquee) || P.i18n.da.marquee;
+    const seq = words.map(function (w) {
+      return '<span class="mq-item">' + w + '</span><span class="mq-sep">&middot;</span>';
+    }).join("");
+    track.innerHTML = seq + seq;
   }
 
   function renderAboutPortrait() {
@@ -388,6 +436,7 @@
 
     window.addEventListener("hashchange", router);
     router();
+    onScroll();
     observeReveals();
   }
 
