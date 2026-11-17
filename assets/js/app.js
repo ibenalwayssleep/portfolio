@@ -1,5 +1,5 @@
 /* Portfolio app · Iben Guldbæk
-   Router, i18n, theme handling, rendering and lightbox.
+   Router, i18n, theme handling, rendering, lightbox and sticky header.
    No frameworks, no third-party requests. */
 (() => {
   "use strict";
@@ -82,6 +82,15 @@
   }
 
   if (colorMQ.addEventListener) { colorMQ.addEventListener("change", onColorChange); }
+
+  /* ---------- sticky header: condense on scroll ---------- */
+
+  const siteHeader = $(".site-header");
+
+  function onScroll() {
+    if (!siteHeader) { return; }
+    siteHeader.classList.toggle("scrolled", window.scrollY > 24);
+  }
 
   /* ---------- placeholder art ---------- */
 
@@ -370,6 +379,11 @@
         try { window.localStorage.setItem("ibg-theme", next); } catch (e) {}
         applyTheme(next, true);
       });
+    }
+
+    if (siteHeader) {
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
     }
 
     window.addEventListener("hashchange", router);
